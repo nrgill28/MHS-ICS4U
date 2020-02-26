@@ -1,0 +1,42 @@
+{
+  "Tickets": [
+    {
+      "Name": "Non-member ticket",
+      "Price": 12.00
+    },
+    {
+      "Name": "ByTowne Member ticket",
+      "Price": 8.00
+    },
+    {
+      "Name": "Child under 12 ticket",
+      "Price": 6.00
+    }
+  ],
+  "Movies": [
+    {
+      "Name": "JoJo Rabbit",
+      "Showtimes": [
+        1583193300,
+        1583287200
+      ]
+    },
+    {
+      "Name": "The Sonic Movie",
+      "Showtimes": [
+        1583187300,
+        1583186400
+      ]
+    }
+  ],
+  "Coupons": {
+    "FREE10": {
+      "Effect": "p -= 10",
+      "Description": "$10 off your purchase"
+    },
+    "50OFF": {
+      "Effect": "p /= 2",
+      "Description": "50% off your purchase"
+    }
+  }
+}

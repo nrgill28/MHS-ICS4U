@@ -32,6 +32,8 @@ Eye of the tiger
 """)
 
 
+chorus()
+
 print("""Face to face, out in the heat
 Hangin' tough, stayin' hungry
 They stack the odds

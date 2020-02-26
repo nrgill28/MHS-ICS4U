@@ -15,7 +15,7 @@ def calculate(p, i, t):
 
 # Get the inputs
 present_value = float(input("What is the present value of the account?\n"))
-interest_rate = float(input("What is the monthly interest rate?\n"))
+interest_rate = float(input("What is the monthly interest rate? (As a decimal)\n"))
 months = float(input("How many months?\n"))
 
 # Calculate and print the new value
