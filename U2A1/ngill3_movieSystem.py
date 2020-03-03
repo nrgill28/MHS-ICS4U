@@ -10,8 +10,8 @@ History . .:
 """
 
 from random import random
-import json
 from datetime import datetime
+import json
 
 # Bunch of global variables
 data = json.load(open("movies.json", 'r'))
@@ -261,7 +261,7 @@ while True:
     select_movie()
     select_showtime()
 
-    # these function can error out and cancel the order
+    # these functions can error out and cancel the order
     if not select_tickets():
         input("Press enter to continue...")
         continue
