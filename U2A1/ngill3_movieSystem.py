@@ -108,7 +108,7 @@ def select_tickets():
             tickets.append(0)
         tickets[ticket_type] += ticket_amount
 
-        if sum(tickets) > seats_left:
+        if ticket_amount > seats_left:
             print("Error, you're buying more tickets than there are at this theater. Your order has been cancelled")
             return False
 
@@ -213,7 +213,7 @@ def select_coupons():
 # This function prints the user's total
 def print_total():
     # Determine the total price
-    price = tickets[0] * 12.00 + tickets[1] * 8.00 + tickets[2] * 6.00
+    price = sum([data["Tickets"][i]["Price"] * x for i, x in enumerate(tickets)])
 
     # Check if the user is using a coupon
     if coupon is not None:

@@ -1,0 +1,61 @@
+<html>
+<head>
+    <title>Index page</title>
+    <link rel="stylesheet" href="w3.css">
+    <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript" src="/eel.js"></script>
+    <script type="text/javascript" src="functions.js"></script>
+</head>
+<body>
+<div id="navbar">
+    <ul>
+        <li><a href="index.html" id="navbar-home">Home</a></li>
+        <li><a href="list.html" id="navbar-list">Student List</a></li>
+        <li><a class="active" href="#" id="navbar-edit">View Student</a></li>
+    </ul>
+</div>
+<div id="content-holder">
+    <div class="w3-card w3-container" id="content">
+        <h1>Student Timetable</h1>
+        <h2 id="student-name"></h2>
+        <table id="student-table">
+            <tr>
+                <th style="width:25%;">Period</th>
+                <th>Course</th>
+            </tr>
+            <tr>
+                <td>Extra 1 (Morning)<br>7:00 - 8:10</td>
+                <td id="extra-1"></td>
+            </tr>
+            <tr>
+                <td>Period 1<br>8:10 AM - 9:25 AM</td>
+                <td id="period-1"></td>
+            </tr>
+            <tr>
+                <td>Period 2<br>9:35 AM - 10:50 AM</td>
+                <td id="period-2"></td>
+            </tr>
+            <tr>
+                <td>Extra 2 (Lunch)<br>10:50 AM - 11:40 AM</td>
+                <td id="extra-2"></td>
+            </tr>
+            <tr>
+                <td>Period 3<br>11:40 AM - 12:55 PM</td>
+                <td id="period-3"></td>
+            </tr>
+            <tr>
+                <td>Period 4<br>1:05 PM - 2:20 PM</td>
+                <td id="period-4"></td>
+            </tr>
+            <tr>
+                <td>Extra 3 (Afternoon)<br>2:20 PM - 3:30 PM</td>
+                <td id="extra-3"></td>
+            </tr>
+        </table>
+    </div>
+</div>
+<script>
+    populate_table();
+</script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<html>
+<head>
+    <title>Index page</title>
+    <link rel="stylesheet" href="w3.css">
+    <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript" src="/eel.js"></script>
+    <script type="text/javascript" src="functions.js"></script>
+</head>
+<body>
+<div id="navbar">
+    <ul>
+        <li><a href="index.html" id="navbar-home">Home</a></li>
+        <li><a href="list.html" id="navbar-list">Student List</a></li>
+        <li><a class="active" href="#" id="navbar-edit">Edit Student</a></li>
+    </ul>
+</div>
+<div id="content-holder">
+    <div class="w3-card" id="content">
+        <form class="w3-container">
+            <input hidden type="text" id="old-sid">
+            <div class="w3-row-padding">
+                <div class="w3-rest">
+                    <p>
+                        <label class="w3-text-blue"><b>Student Name</b></label>
+                        <input class="w3-input w3-border" type="text" id="edit-name"></p>
+                </div>
+            </div>
+            <div class="w3-row-padding">
+                <div class="w3-half">
+                    <p>
+                        <label class="w3-text-blue"><b>Student ID</b></label>
+                        <input class="w3-input w3-border" type="text" id="edit-id"></p>
+                </div>
+                <div class="w3-half">
+                    <p>
+                        <label class="w3-text-blue"><b>Student Grade</b></label>
+                        <input class="w3-input w3-border" type="number" id="edit-grade"></p>
+                </div>
+            </div>
+            <div class="w3-row-padding">
+                <div class="w3-quarter">
+                    <p>
+                        <label class="w3-text-blue"><b>Period 1</b></label>
+                        <input class="w3-input w3-border" type="text" id="edit-p1"></p>
+                </div>
+                <div class="w3-quarter">
+                    <p>
+                        <label class="w3-text-blue"><b>Period 2</b></label>
+                        <input class="w3-input w3-border" type="text" id="edit-p2"></p>
+                </div>
+                <div class="w3-quarter">
+                    <p>
+                        <label class="w3-text-blue"><b>Period 3</b></label>
+                        <input class="w3-input w3-border" type="text" id="edit-p3"></p>
+                </div>
+                <div class="w3-quarter">
+                    <p>
+                        <label class="w3-text-blue"><b>Period 4</b></label>
+                        <input class="w3-input w3-border" type="text" id="edit-p4"></p>
+                </div>
+            </div>
+            <div class="w3-row-padding">
+                <div class="w3-third">
+                    <p>
+                        <label class="w3-text-blue"><b>Extra 1</b></label>
+                        <input class="w3-input w3-border" type="text" id="edit-e1"></p>
+                </div>
+                <div class="w3-third">
+                    <p>
+                        <label class="w3-text-blue"><b>Extra 2</b></label>
+                        <input class="w3-input w3-border" type="text" id="edit-e2"></p>
+                </div>
+                <div class="w3-third">
+                    <p>
+                        <label class="w3-text-blue"><b>Extra 3</b></label>
+                        <input class="w3-input w3-border" type="text" id="edit-e3"></p>
+                </div>
+            </div>
+            <p>
+                <button class="w3-btn w3-blue" onclick="save_user()">Save</button>
+            </p>
+        </form>
+    </div>
+</div>
+<script>
+    populate_edit();
+</script>
+</body>
+</html>

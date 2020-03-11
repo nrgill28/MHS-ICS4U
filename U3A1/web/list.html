@@ -1,0 +1,33 @@
+<html>
+<head>
+    <title>Index page</title>
+    <link rel="stylesheet" href="w3.css">
+    <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript" src="/eel.js"></script>
+    <script type="text/javascript" src="functions.js"></script>
+</head>
+<body>
+<div id="navbar">
+    <ul>
+        <li><a href="#" id="navbar-home">Home</a></li>
+        <li><a class="active" href="#" id="navbar-list">Student List</a></li>
+    </ul>
+</div>
+<div id="content-holder">
+    <br>
+    <div class="w3-row-padding">
+        <div class="w3-quarter">
+            <a class="w3-button w3-red" href="#" id="button-new">Add New</a>
+        </div>
+    </div>
+    <br>
+    <div class="w3-card" id="content">
+        <table id="users-table">
+        </table>
+    </div>
+</div>
+<script>
+    populate_list()
+</script>
+</body>
+</html>
