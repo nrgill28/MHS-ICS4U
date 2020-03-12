@@ -112,6 +112,9 @@ async function save_user() {
     window.location = "/list.html";
 }
 
+/**
+ * This function is used to populate the table in the view student page
+ */
 async function populate_table() {
     let name = document.getElementById("student-name");
     let sid = getUrlParameters()['sid'];

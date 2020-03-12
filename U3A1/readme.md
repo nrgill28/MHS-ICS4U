@@ -1,5 +1,10 @@
 # U3A1 - Dictionary Assignment
 
+### Using the program
+To use this program, run the file normally. It will open an undecorated browser window (sort of like a regular desktop app). Using the UI is explained on the home page.
+
+## Assignment Text
+
 ### Overview
 Link Crew is a high school transition program that welcomes freshmen and makes them feel comfortable throughout the first year of their high school experience. Built on the belief that students can help students succeed, Boomerang Project’s proven high school transition program trains mentors from your junior and senior classes to be Link Crew Leaders. As positive role models, Link Crew Leaders are mentors and student leaders who guide the freshmen to discover what it takes to be successful during the transition to high school and help facilitate freshman success.
 In this assignment, you will create a program that allows link crew leaders to track the schedules for each student in their group.
