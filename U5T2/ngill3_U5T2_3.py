@@ -1,7 +1,7 @@
 """
 Author . . : Nathan Gill
 Course . . : ICS4U
-File . . . : ngill3_U5T2_1.py
+File . . . : ngill3_U5T2_3.py
 Description:
     Person Inheritance
 History . .:
