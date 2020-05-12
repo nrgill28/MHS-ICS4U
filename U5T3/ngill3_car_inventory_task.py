@@ -21,7 +21,18 @@ import sys
 FILE_LOC: str = "carInventory.csv"
 # The data which we will load into and save from
 DATA: Dict[str, Car] = {}
-
+# A dictionary of headers, their display values, internal values and how they should be formatted.
+# A format of None is replaced with %s. (Effectively the same as calling str(x))
+HEADERS = {
+    "DIN": ("_din", None),
+    "VIN": ("_vin", None),
+    "Make": ("_make", None),
+    "Model": ("_model", None),
+    "Interior Color": ("_interior_color", None),
+    "Exterior Color": ("_exterior_color", None),
+    "Transmission": ("_transmission", None),
+    "Price": ("_price", "$%.2f")
+}
 
 # Exit menu function
 def save_and_exit():
@@ -74,30 +85,17 @@ def new_car():
 
 # Prints a list of the cars
 def show_cars():
-    # A dictionary of headers, their display values, internal values and how they should be formatted.
-    # A format of None is replaced with %s. (Effectively the same as calling str(x))
-    headers = {
-        "DIN": ("_din", None),
-        "VIN": ("_vin", None),
-        "Make": ("_make", None),
-        "Model": ("_model", None),
-        "Interior Color": ("_interior_color", None),
-        "Exterior Color": ("_exterior_color", None),
-        "Transmission": ("_transmission", None),
-        "Price": ("_price", "$%.2f")
-    }
-
     # Generate the table of cars
     table = [
-        [c.__getattribute__(value[0]) for _, value in headers.items()]
+        [c.__getattribute__(value[0]) for _, value in HEADERS.items()]
         for _, c in DATA.items()
     ]
 
     # Add the header to the top
-    table.insert(0, list(headers.keys()))
+    table.insert(0, list(HEADERS.keys()))
 
     # Extract the formatting values from the headers dict
-    formats = [value[1] for _, value in headers.items()]
+    formats = [value[1] for _, value in HEADERS.items()]
 
     # Call the table function from the utils file
     pp_table(table, formats)
@@ -145,11 +143,54 @@ def edit_car():
     print("Car updated.")
 
 
+def search_car():
+    queries = [
+        ("VIN", "_vin"),
+        ("Make", "_make"),
+        ("Model", "_model"),
+        ("Color", "_color"),
+        ("Transmission", "_transmission"),
+    ]
+    print("Search by...")
+    for i, option in enumerate(queries):
+        print(f"[{i + 1}] {option[0]}")
+    inp = int(get_user_input("Select an option: ", lambda x: 0 < int(x) <= len(queries)))
+    selected = queries[inp - 1]
+
+    query = input("Search query: ")
+
+    results = DATA.values()
+    if selected[1] == "_color":
+        results = filter(lambda x: query.lower() in [x.__getattribute__("_interior_color").lower(), x.__getattribute__("_exterior_color").lower()], results)
+    else:
+        results = filter(lambda x: query.lower() in x.__getattribute__(selected[1]).lower(), results)
+
+    results = list(results)
+    if len(results) > 0:
+        # Generate the table of cars
+        table = [
+            [c.__getattribute__(value[0]) for _, value in HEADERS.items()]
+            for c in results
+        ]
+
+        # Add the header to the top
+        table.insert(0, list(HEADERS.keys()))
+
+        # Extract the formatting values from the headers dict
+        formats = [value[1] for _, value in HEADERS.items()]
+
+        # Call the table function from the utils file
+        pp_table(table, formats)
+    else:
+        print("No results found.")
+
+
 # Menu items. This is defined below the rest of the constants because Python needs to interpret the functions first
 MENU: List[Tuple[str, Callable]] = [
     ("Register a vehicle", new_car),
     ("Show registered vehicles", show_cars),
     ("Edit a registered vehicle", edit_car),
+    ("Search for a vehicle", search_car),
     ("Save and exit", save_and_exit)
 ]
 # The first thing we want to do is try to load the current data
