@@ -15,7 +15,7 @@ MIN_AMOUNT = 2
 MAX_AMOUNT = 100
 
 # The number of iterations to do
-ITERATIONS = 10000
+ITERATIONS = 1000
 
 # Generate some test data
 print("Generating test data...")
