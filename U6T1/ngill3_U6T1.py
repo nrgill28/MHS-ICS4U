@@ -1,11 +1,11 @@
-from typing import List, Any
+from typing import List, Any, Callable
 
 """
 This file just has the algorithms. Open the tests file for where they're used.
 """
 
 
-def linear_search(lst: List[int], item: int) -> bool:
+def linear_search(lst: List[Any], item: Any) -> bool:
     for i in lst:
         if i == item:
             return True
@@ -13,6 +13,7 @@ def linear_search(lst: List[int], item: int) -> bool:
 
 
 def binary_search(lst: List[int], item: int) -> bool:
+    sorted(lst)
     start, end = 0, len(lst) - 1
     while start <= end:
         pivot = (start + end) // 2
@@ -26,38 +27,39 @@ def binary_search(lst: List[int], item: int) -> bool:
     return False
 
 
-def bubble_sort(lst: List[int]) -> List[int]:
+def bubble_sort(lst: List[Any], sort_method: Callable[[Any], int] = lambda x: x) -> List[Any]:
     ret = lst.copy()
     for num in range(len(ret) - 1, 0, -1):
         for i in range(num):
-            if ret[i] > ret[i + 1]:
+            if sort_method(ret[i]) > sort_method(ret[i + 1]):
                 foo = ret[i]
                 ret[i] = ret[i + 1]
                 ret[i + 1] = foo
     return ret
 
 
-def insertion_sort(lst: List[int]) -> List[int]:
+def insertion_sort(lst: List[Any], sort_method: Callable[[Any], int] = lambda x: x) -> List[Any]:
     ret = lst.copy()
     for i in range(1, len(ret)):
         item = ret[i]
         j = i - 1
-        while item < ret[j] and j >= 0:
+        while j >= 0 and sort_method(item) < sort_method(ret[j]):
             ret[j + 1] = ret[j]
             j -= 1
         ret[j + 1] = item
     return ret
 
 
-def quick_sort(lst: List[int]) -> List[int]:
+def quick_sort(lst: List[int], sort_method: Callable[[Any], int] = lambda x: x) -> List[Any]:
     below, equal, above = [], [], []
     if len(lst) > 1:
-        pivot = lst[0]
+        pivot = sort_method(lst[0])
         for x in lst:
-            if x < pivot: below.append(x)
-            elif x == pivot: equal.append(x)
+            cmp = sort_method(x)
+            if cmp < pivot: below.append(x)
+            elif cmp == pivot: equal.append(x)
             else: above.append(x)
-        return quick_sort(below) + equal + quick_sort(above)
+        return quick_sort(below, sort_method) + equal + quick_sort(above, sort_method)
     else: return lst
 
 
