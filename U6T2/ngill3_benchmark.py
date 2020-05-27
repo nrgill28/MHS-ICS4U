@@ -16,16 +16,16 @@ MAX_AMOUNT = 100
 
 # The number of iterations to do.
 # Iterations is the number of tests, batch size is how many times the same test is repeated.
-# This is so it can be averaged.
-ITERATIONS = 100
-BATCH_SIZE = 100
+# This is so it can be averaged. I'd recommend keeping batch size at 10 so it doesn't take as long.
+ITERATIONS = 500
+BATCH_SIZE = 10
 
 
 def stopwatch(what):
     start = datetime.now()
     for i in range(BATCH_SIZE): what()
     end = datetime.now()
-    return (end - start).total_seconds() / BATCH_SIZE
+    return (end - start).total_seconds()
 
 
 bench_start = datetime.now()
@@ -64,10 +64,10 @@ bench_end = datetime.now()
 algo_times = {"Linear Search": linear_times, "Binary Search": binary_times, "Bubble Sort": bubble_times,
               "Insertion Sort": insertion_times, "Quick Sort": quick_times}
 table_data = [
-    [algo, ITERATIONS * BATCH_SIZE, sum(times) * 1000, (sum(times) / ITERATIONS) * 1000000]
+    [algo, ITERATIONS * BATCH_SIZE, sum(times) * 1000, (sum(times) / ITERATIONS / BATCH_SIZE) * 1000000]
     for algo, times in algo_times.items()
 ]
-table_data.insert(0, ["Algorithm", "Iterations", "Total Time", "Avg Time Per Iteration"])
+table_data.insert(0, ["Algorithm", "Calls", "Total Time", "Avg Time Per Call"])
 formatting = [None, None, "%.2f ms", "%.0f μs"]
 pp_table(table_data, formatting)
 print(f"Total time: {(bench_end - bench_start).total_seconds():.3f} s")
