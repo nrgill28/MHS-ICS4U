@@ -1,2 +1,2 @@
 first_name,last_name,class,race,stats,back_slot,belt_slot,right_hand,left_hand,pack
-Nathan,Gill,Fighter,Halfling,"[3, 11, 9, 4, 3, 13]",Large Axe,Longbow,Ring,Empty,"['Map', 'Map', 'Torch', 'Green Potion', 'Red Potion', 'Coins', 'Wand', 'Key', 'Red Potion', 'Food']"
+Nathan,Gill,Fighter,Dwarf,"[14, 12, 19, 18, 14, 17]",Large Sword,Medium Axe,Map,Empty,"['Blue Potion', 'Healing Potion', 'Green Potion', 'Red Potion', 'Empty', 'Red Potion', 'Key', 'Artifact', 'Map', 'Healing Potion']"
